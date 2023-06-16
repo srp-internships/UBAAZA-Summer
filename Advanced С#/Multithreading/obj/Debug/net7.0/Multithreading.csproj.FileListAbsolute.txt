@@ -1,0 +1,15 @@
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\bin\Debug\net7.0\Multithreading.exe
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\bin\Debug\net7.0\Multithreading.deps.json
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\bin\Debug\net7.0\Multithreading.runtimeconfig.json
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\bin\Debug\net7.0\Multithreading.dll
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\bin\Debug\net7.0\Multithreading.pdb
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.csproj.AssemblyReference.cache
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.AssemblyInfoInputs.cache
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.AssemblyInfo.cs
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.csproj.CoreCompileInputs.cache
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.dll
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\refint\Multithreading.dll
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.pdb
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\Multithreading.genruntimeconfig.cache
+C:\Users\azamjon\Desktop\SRP\Advanced С#\Multithreading\obj\Debug\net7.0\ref\Multithreading.dll
