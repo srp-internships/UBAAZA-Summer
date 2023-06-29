@@ -1,0 +1,13 @@
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\bin\Debug\DatabaseFirstDemo.exe.config
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\bin\Debug\DatabaseFirstDemo.exe
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\bin\Debug\DatabaseFirstDemo.pdb
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\bin\Debug\EntityFramework.dll
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\bin\Debug\EntityFramework.xml
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\obj\Debug\DatabaseFirstDemo.csproj.AssemblyReference.cache
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\obj\Debug\DatabaseFirstDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\obj\Debug\DatabaseFirstDemo.csproj.CoreCompileInputs.cache
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\obj\Debug\DatabaseFirstDemo.csproj.CopyComplete
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\obj\Debug\DatabaseFirstDemo.exe
+C:\Users\azamjon\Desktop\SRP\DatabaseFirstDemo\obj\Debug\DatabaseFirstDemo.pdb

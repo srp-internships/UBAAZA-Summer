@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DatabaseFirstDemoModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "DatabaseFirstDemo.dbo.Table_1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Table_1">
+          <Property Name="PostId" Type="int" />
+          <Property Name="DatePublished" Type="smalldatetime" />
+          <Property Name="Titie" Type="varchar" MaxLength="50" />
+          <Property Name="body" Type="varchar" MaxLength="500" />
+        </EntityType>-->
+  <EntityContainer Name="Хранилище DatabaseFirstDemoModelContainer" />
+</Schema>
