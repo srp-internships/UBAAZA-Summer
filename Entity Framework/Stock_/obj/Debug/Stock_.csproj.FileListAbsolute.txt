@@ -1,0 +1,15 @@
+C:\Users\azamjon\Desktop\SRP\Stock_\bin\Debug\Stock_.exe.config
+C:\Users\azamjon\Desktop\SRP\Stock_\bin\Debug\Stock_.exe
+C:\Users\azamjon\Desktop\SRP\Stock_\bin\Debug\Stock_.pdb
+C:\Users\azamjon\Desktop\SRP\Stock_\bin\Debug\EntityFramework.dll
+C:\Users\azamjon\Desktop\SRP\Stock_\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\azamjon\Desktop\SRP\Stock_\bin\Debug\EntityFramework.xml
+C:\Users\azamjon\Desktop\SRP\Stock_\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.csproj.AssemblyReference.cache
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.csproj.SuggestedBindingRedirects.cache
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.csproj.CoreCompileInputs.cache
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.csproj.CopyComplete
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.exe
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.pdb
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.Migrations.innit.resources
+C:\Users\azamjon\Desktop\SRP\Stock_\obj\Debug\Stock_.csproj.GenerateResource.cache
