@@ -6,10 +6,12 @@ namespace dotnet_rpg.Services.FightService
     public class FightService :IFightService
     {
         private readonly DataContext _context;
+        private readonly IMapper _mapper;
 
-        public FightService(DataContext context)
+        public FightService(DataContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<ServiceResponse<AttackResultDto>> SkillAttack(SkillAttackDto request)
@@ -198,6 +200,20 @@ namespace dotnet_rpg.Services.FightService
             }
 
             return demage;
+        }
+
+        public async Task<ServiceResponse<List<HighscoreDto>>> GetHighscore()
+        {
+            var  characters=await _context.Characters
+                .Where(c=>c.fights>0)
+                .OrderByDescending(c=>c.Victoties)
+                .ThenBy(c=>c.Defense)
+                .ToArrayAsync();
+            var response=new ServiceResponse<List<HighscoreDto>>()
+            {
+                Data=characters.Select(c=>_mapper.Map<HighscoreDto>(c)).ToList()
+            };
+            return response;
         }
     }
 }
