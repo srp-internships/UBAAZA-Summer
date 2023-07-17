@@ -21,10 +21,10 @@ namespace dotnet_rpg.Controllers
         [HttpPatch("Skill")]
         public async Task<ActionResult<ServiceResponse<AttackResultDto>>> SkillAttack(SkillAttackDto request)
         {
-            return Ok(await _fightService.Fight(request));
+            return Ok(await _fightService.SkillAttack(request));
         }
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<FightController>>> Fight(SkillAttackDto request)
+        public async Task<ActionResult<ServiceResponse<FightController>>> Fight(FightRequestDto request)
         {
             return Ok(await _fightService.Fight(request));
         }

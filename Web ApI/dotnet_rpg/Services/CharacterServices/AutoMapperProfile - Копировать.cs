@@ -1,4 +1,5 @@
-﻿using dotnet_rpg.Dtosa.Skill;
+﻿using dotnet_rpg.Dtos.Fight;
+using dotnet_rpg.Dtosa.Skill;
 
 namespace dotnet_rpg.Services.CharacterServices
 {
@@ -10,6 +11,7 @@ namespace dotnet_rpg.Services.CharacterServices
             CreateMap<AddCharacterDto, Character>();
             CreateMap<Weapon, Character>();
             CreateMap<Skill, GetSkillDto>();
+            CreateMap<Character,HighscoreDto>();
             
 
         }

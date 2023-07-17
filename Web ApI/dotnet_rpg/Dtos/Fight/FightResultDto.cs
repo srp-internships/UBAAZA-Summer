@@ -2,7 +2,8 @@
 {
     public class FightResultDto
     {
-        public List<int> CharacterIds { get; set; } = new List<int>();
+        public List<string> Log { get; set; } = new List<string>();
+
 
     }
 }
