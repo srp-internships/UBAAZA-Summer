@@ -4,6 +4,7 @@ using BlazorEcommerce.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorEcommerce.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230724035603_ProductVariants")]
+    partial class ProductVariants
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -271,127 +274,6 @@ namespace BlazorEcommerce.Server.Migrations
                     b.HasIndex("ProductTypeId");
 
                     b.ToTable("ProductVariant");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            ProductTypeId = 2,
-                            OriginalPrice = 19.99m,
-                            Price = 9.99m
-                        },
-                        new
-                        {
-                            ProductId = 1,
-                            ProductTypeId = 3,
-                            OriginalPrice = 0m,
-                            Price = 7.99m
-                        },
-                        new
-                        {
-                            ProductId = 1,
-                            ProductTypeId = 4,
-                            OriginalPrice = 29.99m,
-                            Price = 19.99m
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            ProductTypeId = 2,
-                            OriginalPrice = 14.99m,
-                            Price = 7.99m
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            ProductTypeId = 2,
-                            OriginalPrice = 0m,
-                            Price = 6.99m
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            ProductTypeId = 5,
-                            OriginalPrice = 0m,
-                            Price = 3.99m
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            ProductTypeId = 6,
-                            OriginalPrice = 0m,
-                            Price = 9.99m
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            ProductTypeId = 7,
-                            OriginalPrice = 0m,
-                            Price = 19.99m
-                        },
-                        new
-                        {
-                            ProductId = 5,
-                            ProductTypeId = 5,
-                            OriginalPrice = 0m,
-                            Price = 3.99m
-                        },
-                        new
-                        {
-                            ProductId = 6,
-                            ProductTypeId = 5,
-                            OriginalPrice = 0m,
-                            Price = 2.99m
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            ProductTypeId = 8,
-                            OriginalPrice = 29.99m,
-                            Price = 19.99m
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            ProductTypeId = 9,
-                            OriginalPrice = 0m,
-                            Price = 69.99m
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            ProductTypeId = 10,
-                            OriginalPrice = 59.99m,
-                            Price = 49.99m
-                        },
-                        new
-                        {
-                            ProductId = 8,
-                            ProductTypeId = 8,
-                            OriginalPrice = 24.99m,
-                            Price = 9.99m
-                        },
-                        new
-                        {
-                            ProductId = 9,
-                            ProductTypeId = 8,
-                            OriginalPrice = 0m,
-                            Price = 14.99m
-                        },
-                        new
-                        {
-                            ProductId = 10,
-                            ProductTypeId = 1,
-                            OriginalPrice = 299m,
-                            Price = 159.99m
-                        },
-                        new
-                        {
-                            ProductId = 11,
-                            ProductTypeId = 1,
-                            OriginalPrice = 399m,
-                            Price = 79.99m
-                        });
                 });
 
             modelBuilder.Entity("BlazorEcommerce.Shared.Product", b =>
