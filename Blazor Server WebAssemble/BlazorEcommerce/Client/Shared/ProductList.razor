@@ -29,6 +29,14 @@ else
 			</li>
 		}
 	</ul>
+	for (var i = 1; i <= ProductService.PagaCount; i++)
+	{
+		<a class="btn @(i==ProductService.CurrentPage ?"btn-info":"btn-outline-info")
+		page-selectio"
+		   href="/search/@ProductService.LastSearchText/@i">@i</a>
+
+
+	}
 }
 @code {
 	protected override void OnInitialized()

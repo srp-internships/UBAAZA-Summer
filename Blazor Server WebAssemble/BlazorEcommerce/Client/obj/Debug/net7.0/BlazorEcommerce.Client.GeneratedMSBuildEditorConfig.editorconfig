@@ -32,6 +32,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Shared/CartCounter.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcnRDb3VudGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Shared/Search.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNlYXJjaC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,9 +52,17 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Pages/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-3b5rf2ockk
+
 [C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Pages/ProductDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-0l6p78lwiq
+
+[C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Shared/FeaturedProducts.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZlYXR1cmVkUHJvZHVjdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-mkldjm4yjh
 
 [C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Shared/HomeButton.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEhvbWVCdXR0b24ucmF6b3I=
@@ -71,3 +87,7 @@ build_metadata.AdditionalFiles.CssScope = b-eyye3xe6ci
 [C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Shared/ShopNavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNob3BOYXZNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-d3ua3ebcma
+
+[C:/Users/azamjon/source/repos/srp-internships/UBAAZA-Summer/Blazor Server WebAssemble/BlazorEcommerce/Client/Shared/UserButton.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFVzZXJCdXR0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-l31arl77u2
