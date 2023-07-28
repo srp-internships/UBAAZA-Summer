@@ -19,7 +19,7 @@ else
 						<img src="@product.ImageUrl" >
 					  </a>
 					</div>
-					<h4> <a href="@product.Id">@product.Title</a></h4>
+					<h4> <a href="product/@product.Id">@product.Title</a></h4>
 					@if (product.Variants !=null && product.Variants.Count > 0)
 					{
 						<h5 class="price">
