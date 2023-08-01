@@ -2,6 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Security.Cryptography.Xml;
 
 namespace BlazorEcommerce.Server.Services.AuthService
 {
@@ -10,33 +11,33 @@ namespace BlazorEcommerce.Server.Services.AuthService
 		private readonly DataContext _context;
 		private readonly IConfiguration _configuration;
 
-		public AuthService(DataContext context ,IConfiguration configuration)
+		public AuthService(DataContext context, IConfiguration configuration)
 		{
-		     _context = context;
+			_context = context;
 			_configuration = configuration;
 		}
 
 		public async Task<ServiceResponse<string>> Login(string email, string password)
 		{
 			var response = new ServiceResponse<string>();
-			var user =await _context.Users
+			var user = await _context.Users
 				.FirstOrDefaultAsync(x => x.Email.ToLower().Equals(email.ToLower()));
-			if (user == null) 
+			if (user == null)
 			{
 				response.Success = false;
 				response.Message = "User not found.";
 			}
-            else if (!VerifuPasswordHash(password,user.PasswordHash,user.PasswordSalt))
-            {
-                response.Success=false;
+			else if (!VerifuPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+			{
+				response.Success = false;
 				response.Message = "Wrong password.";
-            }
-            else
-            {
-                
-            response.Data = CreateToken(user);
-            }
-			
+			}
+			else
+			{
+
+				response.Data = CreateToken(user);
+			}
+
 			return response;
 		}
 
@@ -44,44 +45,45 @@ namespace BlazorEcommerce.Server.Services.AuthService
 		{
 			if (await UserExists(user.Email))
 			{
-				return new ServiceResponse<int> { 
-					Success = false, 
+				return new ServiceResponse<int>
+				{
+					Success = false,
 					Message = "User alreadu exists... "
 				};
 			}
-			CreatePasswordHash(password,out byte[] passwordHash , out byte[] passwordsalt);
+			CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordsalt);
 
 			user.PasswordHash = passwordHash;
 			user.PasswordSalt = passwordsalt;
 			_context.Users.Add(user);
 			await _context.SaveChangesAsync();
-			return new ServiceResponse<int> { Data=user.Id,Message="Registration successful!"};
-		
+			return new ServiceResponse<int> { Data = user.Id, Message = "Registration successful!" };
+
 		}
 
 		public async Task<bool> UserExists(string email)
 		{
-			if (await _context.Users.AnyAsync(user=>user.Email.ToLower()
+			if (await _context.Users.AnyAsync(user => user.Email.ToLower()
 			.Equals(email.ToLower())))
 			{
 				return true;
 			}
 			return false;
 		}
-		private void CreatePasswordHash(string password ,out byte[] passwordHash, out byte[] passwordSolt)
+		private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSolt)
 		{
-			using (var hmac =new HMACSHA512())
+			using (var hmac = new HMACSHA512())
 			{
 				passwordSolt = hmac.Key;
 				passwordHash = hmac
 					.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 			}
 		}
-		private bool VerifuPasswordHash(string password, byte[] passwordHash ,byte[] passwordSalt)
+		private bool VerifuPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
 		{
-			using (var hmac=new HMACSHA512(passwordSalt))
+			using (var hmac = new HMACSHA512(passwordSalt))
 			{
-				var computedHash = 
+				var computedHash =
 					hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 				return computedHash.SequenceEqual(passwordHash);
 			}
@@ -95,7 +97,7 @@ namespace BlazorEcommerce.Server.Services.AuthService
 			};
 			var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8
 				.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
-			var creds=new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
+			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 			var token = new JwtSecurityToken(
 				claims: claime,
 				expires: DateTime.Now.AddDays(1),
@@ -104,7 +106,27 @@ namespace BlazorEcommerce.Server.Services.AuthService
 			return jwt;
 
 
-				
+
+		}
+
+		public async Task<ServiceResponse<bool>> ChangePassword(int userId, string newPassword)
+		{
+			var user = await _context.Users.FindAsync(userId);
+			if (user == null)
+			{
+				return new ServiceResponse<bool>
+				{
+					Success = false,
+					Message = "User not found."
+				};
+
+			}
+			CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+
+			user.PasswordHash= passwordHash;
+			user.PasswordSalt= passwordSalt;
+			await _context.SaveChangesAsync();
+			return new ServiceResponse<bool> { Data = true,Message ="Password has been changed." };
 		}
 	}
 }
