@@ -4,5 +4,7 @@
 	{
 		public Task<ServiceResponse<int>> Register(User user, string password); 
 		public Task<bool> UserExists(string email);
+
+		Task<ServiceResponse<string>> Login(string email, string password);
 	}
 }
