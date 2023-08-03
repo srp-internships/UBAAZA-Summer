@@ -27,14 +27,13 @@ namespace BlazorEcommerce.Server.Services.AuthService
 				response.Success = false;
 				response.Message = "User not found.";
 			}
-			else if (!VerifuPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+			else if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
 			{
 				response.Success = false;
 				response.Message = "Wrong password.";
 			}
 			else
 			{
-
 				response.Data = CreateToken(user);
 			}
 
@@ -48,38 +47,42 @@ namespace BlazorEcommerce.Server.Services.AuthService
 				return new ServiceResponse<int>
 				{
 					Success = false,
-					Message = "User alreadu exists... "
+					Message = "User already exists."
 				};
 			}
-			CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordsalt);
+
+			CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
 			user.PasswordHash = passwordHash;
-			user.PasswordSalt = passwordsalt;
+			user.PasswordSalt = passwordSalt;
+
 			_context.Users.Add(user);
 			await _context.SaveChangesAsync();
-			return new ServiceResponse<int> { Data = user.Id, Message = "Registration successful!" };
 
+			return new ServiceResponse<int> { Data = user.Id, Message = "Registration successful!" };
 		}
 
 		public async Task<bool> UserExists(string email)
 		{
 			if (await _context.Users.AnyAsync(user => user.Email.ToLower()
-			.Equals(email.ToLower())))
+				 .Equals(email.ToLower())))
 			{
 				return true;
 			}
 			return false;
 		}
-		private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSolt)
+
+		private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
 		{
 			using (var hmac = new HMACSHA512())
 			{
-				passwordSolt = hmac.Key;
+				passwordSalt = hmac.Key;
 				passwordHash = hmac
 					.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 			}
 		}
-		private bool VerifuPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+
+		private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
 		{
 			using (var hmac = new HMACSHA512(passwordSalt))
 			{
@@ -88,25 +91,28 @@ namespace BlazorEcommerce.Server.Services.AuthService
 				return computedHash.SequenceEqual(passwordHash);
 			}
 		}
+
 		private string CreateToken(User user)
 		{
-			List<Claim> claime = new List<Claim>
+			List<Claim> claims = new List<Claim>
 			{
-				new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-				new Claim (ClaimTypes.Name,user.Email)
+				new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+				new Claim(ClaimTypes.Name, user.Email)
 			};
+
 			var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8
 				.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+
 			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
 			var token = new JwtSecurityToken(
-				claims: claime,
-				expires: DateTime.Now.AddDays(1),
-				signingCredentials: creds);
+					claims: claims,
+					expires: DateTime.Now.AddDays(1),
+					signingCredentials: creds);
+
 			var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
 			return jwt;
-
-
-
 		}
 
 		public async Task<ServiceResponse<bool>> ChangePassword(int userId, string newPassword)
@@ -119,14 +125,16 @@ namespace BlazorEcommerce.Server.Services.AuthService
 					Success = false,
 					Message = "User not found."
 				};
-
 			}
+
 			CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
 
-			user.PasswordHash= passwordHash;
-			user.PasswordSalt= passwordSalt;
+			user.PasswordHash = passwordHash;
+			user.PasswordSalt = passwordSalt;
+
 			await _context.SaveChangesAsync();
-			return new ServiceResponse<bool> { Data = true,Message ="Password has been changed." };
+
+			return new ServiceResponse<bool> { Data = true, Message = "Password has been changed." };
 		}
 	}
 }

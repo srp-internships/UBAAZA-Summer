@@ -10,8 +10,8 @@
 @code {
 	private int GetCartItemsCount()
 	{
-		var cart = LacalStorage.GetItem<List<CartItem>>("cart");
-		return cart != null ? cart.Count : 0;
+		var caunt = LacalStorage.GetItem<int>("cartItemsCount");
+		return caunt;
 	}
 	protected override void OnInitialized()
 	{

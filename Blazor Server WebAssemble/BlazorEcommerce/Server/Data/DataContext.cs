@@ -11,6 +11,8 @@ namespace BlazorEcommerce.Server.Data
 		{
 			modelBuilder.Entity<ProductVariant>()
 			   .HasKey(p => new { p.ProductId, p.ProductTypeId });
+			modelBuilder.Entity<CartItem>()
+						   .HasKey(ci => new { ci.UserId, ci.ProductId, ci.ProductTypeId });
 
 			modelBuilder.Entity<ProductType>().HasData(
 				   new ProductType { Id = 1, Name = "Default" },
@@ -167,8 +169,8 @@ namespace BlazorEcommerce.Server.Data
 					Description = " The Hitchhiker's Guide to the Galaxy[a][b] is a comedy science fiction franchise created by Douglas Adams. Originally a 1978 radio comedy broadcast on BBC Radio 4, it was later adapted to other formats, including novels, stage shows, comic books, a 1981 TV series, a 1984 text-based video game, and 2005 feature film.",
 					ImageUrl = "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg",
 					CategoryId = 1,
-					Featured=true
-					
+					Featured = true
+
 				},
 				new Product
 				{
@@ -262,6 +264,7 @@ namespace BlazorEcommerce.Server.Data
 		public DbSet<ProductType> ProductType { get; set; }
 		public DbSet<ProductVariant> ProductVariant { get; set; }
 		public DbSet<User> Users { get; set; }
+		public DbSet<CartItem> CartItem { get; set; }
 
 	}
 }
