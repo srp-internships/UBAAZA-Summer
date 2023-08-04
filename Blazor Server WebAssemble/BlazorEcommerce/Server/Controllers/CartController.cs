@@ -24,8 +24,25 @@ namespace BlazorEcommerce.Server.Controllers
 		[HttpPost]
 		public async Task<ActionResult<ServiceResponse<List<CartProductResponse>>>> StoreCartItems(List<CartItem> cartItems)
 		{
-			var userI = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 			var result = await _cartService.StoreCartItems(cartItems);
+			return Ok(result);
+		}
+		[HttpPost("add")]
+		public async Task<ActionResult<ServiceResponse<bool>>> AddtoCard(CartItem cartItems)
+		{
+			var result = await _cartService.AddToCart(cartItems);
+			return Ok(result);
+		}
+		[HttpDelete("{productId}/{productTypeId}")]
+		public async Task<ActionResult<ServiceResponse<bool>>> RemoveItemFromCart(int productId, int productTypeId )
+		{
+			var result = await _cartService.RemoveItemFromCart(productId,productTypeId);
+			return Ok(result);
+		}
+		[HttpPut("update-quantity")]
+		public async Task<ActionResult<ServiceResponse<bool>>> UpdateQuantity(CartItem cartItems)
+		{
+			var result = await _cartService.UpdateQuantity(cartItems);
 			return Ok(result);
 		}
 
@@ -33,6 +50,12 @@ namespace BlazorEcommerce.Server.Controllers
 		public async Task<IActionResult> GetCartItemsCount()
 		{
 			return Ok(await _cartService.GetCartItemsCount());
+		}
+		[HttpGet]
+		public async Task<ActionResult<ServiceResponse<List<CartProductResponse>>>> GetDbCartProduct()
+		{
+			var result=await _cartService.GetDbCartProducts();
+			return Ok(result);
 		}
 
 	

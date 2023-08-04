@@ -4,7 +4,6 @@
 	{
 		event Action OnChange;
 		Task AddToCard(CartItem cartItem);
-		Task<List<CartItem>> GetCartItems();
 		Task<List<CartProductResponse>> GetCartProducts();
 		Task RemoveProductFromCart(int productId, int productTypeId);
 		Task UpdateQuantity(CartProductResponse product);

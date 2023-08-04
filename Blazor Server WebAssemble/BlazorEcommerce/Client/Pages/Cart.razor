@@ -1,5 +1,6 @@
 ﻿@page "/cart"
 @inject ICartService CartService
+@inject IOrderService OrderService
 
 <PageTitle>Shopping Cart</PageTitle>
 <h3>Shopping Cart</h3>
@@ -35,6 +36,7 @@ else
 			Total (@cartProducts.Count): $@cartProducts.Sum(product => @product.Price * product.Quantity)
 		</div>
 	</div>
+	<botton @onclick="PlaceOrder" class="btn alert-secondary float-end m-1"> Place Order </botton>
 }
 
 
@@ -52,16 +54,13 @@ else
 	}
 	private async Task LoadCart()
 	{
-
-		if ((await CartService.GetCartItems()).Count == 0)
+		await CartService.GetCartItemCount();
+		cartProducts = await CartService.GetCartProducts();
+		if (cartProducts==null || cartProducts.Count==0)
 		{
 			message = "Your card is empty";
-			cartProducts = new List<CartProductResponse>();
 		}
-		else
-		{
-			cartProducts = await CartService.GetCartProducts();
-		}
+
 	}
 	private async Task UpdateQuantity(ChangeEventArgs e, CartProductResponse product)
 	{
@@ -71,5 +70,10 @@ else
 			product.Quantity = 1;
 		}
 		await CartService.UpdateQuantity(product);
+	}
+
+	private async Task PlaceOrder()
+	{
+		await OrderService.PlaceOrder();
 	}
 }
