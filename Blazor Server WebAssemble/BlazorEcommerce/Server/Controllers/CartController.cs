@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace BlazorEcommerce.Server.Controllers
@@ -35,6 +34,8 @@ namespace BlazorEcommerce.Server.Controllers
 		{
 			return Ok(await _cartService.GetCartItemsCount());
 		}
+
+	
 
 	}
 }

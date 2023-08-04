@@ -43,15 +43,16 @@ else
 	string message = "Loading cart...";
 	protected override async Task OnInitializedAsync()
 	{
-			await LoadCart();
+		await LoadCart();
 	}
-	private async Task RemoveProductFromCart(int productId,int productTypeId)
+	private async Task RemoveProductFromCart(int productId, int productTypeId)
 	{
 		await CartService.RemoveProductFromCart(productId, productTypeId);
 		await LoadCart();
 	}
 	private async Task LoadCart()
 	{
+
 		if ((await CartService.GetCartItems()).Count == 0)
 		{
 			message = "Your card is empty";
@@ -62,7 +63,7 @@ else
 			cartProducts = await CartService.GetCartProducts();
 		}
 	}
-	private async Task UpdateQuantity(ChangeEventArgs e ,CartProductResponse product)
+	private async Task UpdateQuantity(ChangeEventArgs e, CartProductResponse product)
 	{
 		product.Quantity = int.Parse(e.Value.ToString());
 		if (product.Quantity < 1)

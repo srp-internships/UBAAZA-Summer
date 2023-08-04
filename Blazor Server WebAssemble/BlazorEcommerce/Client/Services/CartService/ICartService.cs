@@ -10,6 +10,6 @@
 		Task UpdateQuantity(CartProductResponse product);
 		Task StoreCartItem(bool emptyLocalCart);
 
-		Task GetCartItemCout();
+		Task GetCartItemCount();
 	}
 }
